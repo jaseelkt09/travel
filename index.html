@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Booking App</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Font Awesome CSS for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <!-- top form -->
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-2 mb-3 d-sm-block d-none"></div>
+      <div class="col-12 col-md-3 mb-3">
+        <select class="form-select custom-select-bg-img">
+          <option selected>Select Roles</option>
+          <option value="1">Option 1 </option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-3 mb-3">
+        <select class="form-select custom-select-bg-img">
+          <option selected>Delegate</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <div class="input-group custom_search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-prepend ">
+            <button class="input-group-text" id="searchIcon">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- top form end-->
+  <section class="cutom_main_tabs">
+    <div class="container">
+      <!-- tabs head -->
+      <ul class="nav justify-content-center nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <div class="nav_link_custom active" id="pills-tickets-tab" data-bs-toggle="pill" data-bs-target="#pills-tickets" type="button" role="tab" aria-controls="pills-tickets" aria-selected="true">
+            <div class="main_tab_icon">
+              <i class="fa-solid fa-ticket"></i>
+            </div>
+            <a class="main_tabs_link" href="#">Tickets</a>
+          </div>
+        </li>
+        <li class="nav-item" role="presentation">
+          <div class="nav_link_custom " id="pills-accommodation-tab" data-bs-toggle="pill" data-bs-target="#pills-accommodation" type="button" role="tab" aria-controls="pills-accommodation" aria-selected="false">
+            <div class="main_tab_icon">
+              <i class="fa fa-hotel"></i>
+            </div>
+            <a class="main_tabs_link" href="#">Accommodation</a>
+          </div>
+        </li>
+        <li class="nav-item" role="presentation">
+          <div class="nav_link_custom " id="pills-cab-tab" data-bs-toggle="pill" data-bs-target="#pills-cab" type="button" role="tab" aria-controls="pills-cab" aria-selected="false">
+            <div class="main_tab_icon">
+              <i class="fa fa-taxi"></i>
+            </div>
+            <a class="main_tabs_link" href="#">Cab</a>
+          </div>
+        </li>
+        <li class="nav-item" role="presentation">
+          <div class="nav_link_custom " id="pills-advance-tab" data-bs-toggle="pill" data-bs-target="#pills-advance" type="button" role="tab" aria-controls="pills-advance" aria-selected="false">
+            <div class="main_tab_icon">
+              <i class="fa fa-wallet"></i>
+            </div>
+            <a class="main_tabs_link" href="#">Advance</a>
+          </div>
+        </li>
+      </ul>
+      <!-- tabs head end -->
+      <div class="tab-content mb-3" id="pills-tabContent">
+        <!-- tickets tab -->
+        <div class="tab-pane fade show active " id="pills-tickets" role="tabpanel" aria-labelledby="pills-tickets-tab" tabindex="0">
+          <form class="d-flex">
+            <span class="radio_group">
+              <input class="form-check-input" type="radio" id="option1" name="options" onclick="handleRadioClick('content1')" checked>
+              <label class="form-check-label" for="option1">One Way <i class="fa-solid fa-sign-hanging"></i>
+              </label>
+            </span>
+            <span class="radio_group">
+              <input class="form-check-input" type="radio" id="option2" name="options" onclick="handleRadioClick('content2')">
+              <label class="form-check-label" for="option2">Round Trip <i class="fa-solid fa-signs-post"></i>
+              </label>
+            </span>
+            <span class="radio_group">
+              <input class="form-check-input" type="radio" id="option3" name="options" onclick="handleRadioClick('content3')">
+              <label class="form-check-label" for="option3">Multi City <i class="fa-solid fa-align-justify"></i>
+              </label>
+            </span>
+          </form>
+          <div class="d-flex bg-light mb-2">
+            <div class="p-2 sub_tab2 active" onclick="handleColorClick(this)">
+              <i class="fa-solid fa-plane"></i> Air
+            </div>
+            <div class="p-2 sub_tab2" onclick="handleColorClick(this)">
+              <i class="fa-solid fa-train"></i> Trains
+            </div>
+            <div class="p-2 sub_tab2" onclick="handleColorClick(this)">
+              <i class="fa-solid fa-bus"></i> Buses
+            </div>
+          </div>
+          <div class="content content1 content2 active">
+            <div class="d-flex flex-column flex-md-row">
+              <div class="blocks position-relative">
+                <div class="change_place">
+                  <div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </div>
+                </div>
+                <div class="sub_title">Depart From</div>
+                <div class="search_result_trip">
+                  <input type="text" class="" value="Bengaluru">
+                  <p class="trip_sub_value">IND</p>
+                </div>
+              </div>
+              <div class="blocks">
+                <div class="sub_title">Designation</div>
+                <div class="search_result_trip">
+                  <input type="text" value="New Delhi">
+                  <p class="trip_sub_value">IND</p>
+                </div>
+              </div>
+              <div class="blocks b-line">
+                <div class="d-flex">
+                  <div>
+                    <div class="sub_title">Departure</div>
+                    <div class="search_result_trip search_result_date">
+                      <input type="text" class="" value="15 Sep 2022">
+                      <div class="time_value">
+                        <span>Time 09:30 <i class="fa-regular fa-clock ms-3"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content  content1 b-line-act active"></div>
+                  <div>
+                    <div class="sub_title">Arrival</div>
+                    <div class="search_result_trip search_result_date ">
+                      <input type="text" class="" value="15 Sep 2022">
+                      <div class="time_value">
+                        <span>Time 09:30 <i class="fa-regular fa-clock ms-3"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="blocks content content2">
+                <div class="d-flex">
+                  <div>
+                    <div class="sub_title">Return</div>
+                    <div class="search_result_trip search_result_date">
+                      <input type="text" class="" value="15 Sep 2022">
+                      <div class="time_value">
+                        <span>Time 09:30 <i class="fa-regular fa-clock ms-3"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="sub_title">Arrival</div>
+                    <div class="search_result_trip search_result_date ">
+                      <input type="text" class="" value="15 Sep 2022">
+                      <div class="time_value">
+                        <span>Time 09:30 <i class="fa-regular fa-clock ms-3"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content content3"> Dummy </div>
+          <div class="mt-5">
+            <div class="content content2">
+              <span class="departure_level">
+                <span class="departure_icon">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span> Departure 
+              </span>
+            </div>
+            <div class="content content1 content2 active">
+              <div class="d-flex">
+                <div class="col-6 ">
+                  <div class="border-bottom me-4 pb-1">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions01" id="inlineRadio_1" value="option01">
+                      <label class="form-check-label" for="inlineRadio_1">Economy</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions01" id="inlineRadio_2" value="option02">
+                      <label class="form-check-label" for="inlineRadio_2">Premium Economy</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions01" id="inlineRadio_3" value="option03">
+                      <label class="form-check-label" for="inlineRadio_3">Business <i class="fa-solid fa-circle-info text-primary"></i>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 ">
+                  <div class="border-bottom ms-4 pb-1">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox_1" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox_1">Non Stop Flights</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content content2">
+            <span class="departure_level mt-3">
+              <span class="departure_icon retrun_icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span> Return 
+            </span>
+          </div>
+          <div class="pb-4">
+            <div class="content  content2">
+              <div class="d-flex">
+                <div class="col-6">
+                  <div class="border-bottom me-4 pb-1">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio_4" value="option1">
+                      <label class="form-check-label" for="inlineRadio_4">Economy</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio_5" value="option2">
+                      <label class="form-check-label" for="inlineRadio_5">Premium Economy</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio_6" value="option2">
+                      <label class="form-check-label" for="inlineRadio_6">Business</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox_3" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox_3">Non Stop Flights</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 ">
+                  <div class="border-bottom ms-4 pb-1">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox_4" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox_4">Non Stop Flights</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content content1 content2 active">
+            <div class="bg-light d-flex p-2">
+              <div class="col-8">
+                <p>Default Cost Cenre/Department When Travel Will be Change</p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked>
+                  <label class="form-check-label" for="inlineCheckbox2">2071001-Finance Operation</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <p>Do You Want Change To Different Cost Center/Department</p>
+                <select class="form-select custom-select-bg-img">
+                  <option selected>Select</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-check form-check-inline mt-4 content content1 active">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+              <label class="form-check-label" for="inlineCheckbox3"> I Accept that Insurance is required </label>
+            </div>
+            <div class="d-flex justify-content-end mt-4 content content1 content2 ">
+              <button type="button" class="btn btn-danger btn_secondary"> Search <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- tickets tab end -->
+        <!-- accommodation tab -->
+        <div class="tab-pane fade" id="pills-accommodation" role="tabpanel" aria-labelledby="pills-accommodation-tab" tabindex="0">
+          <div class="d-flex flex-column flex-md-row">
+            <div class="blocks">
+              <div class="sub_title">Location</div>
+              <div class="search_result_trip">
+                <input type="text" class="" value="Bengaluru">
+                <p class="trip_sub_value">IND</p>
+              </div>
+            </div>
+            <div class="blocks">
+              <div class="sub_title">Check In</div>
+              <div class="search_result_trip search_result_date">
+                <input type="text" class="" value="19 Sep 2022">
+                <p class="trip_sub_value">Monday</p>
+              </div>
+            </div>
+            <div class="blocks">
+              <div class="sub_title">Check Out</div>
+              <div class="search_result_trip search_result_date">
+                <input type="text" class="" value="23 Sep 2022">
+                <p class="trip_sub_value">Friday</p>
+              </div>
+            </div>
+            <div class="blocks">
+              <div class="sub_title">No of Nights</div>
+              <div class="search_result_trip search_result_date">
+                <input type="text" class="" value="4">
+              </div>
+            </div>
+            <div class="blocks">
+              <div class="sub_title">No of Rooms</div>
+              <div class="search_result_trip search_result_date">
+                <input type="text" class="" value="2">
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-12 col-md-4">
+              <div class="form-group custom-select-container">
+                <label for="customSelect" class="custom-label mb-2">Accommodation Type</label>
+                <select id="dropdown1" class="form-select custom-select-bg-img" onchange="changeContent('dropdown1')">
+                  <option selected="">Select</option>
+                  <option value="option1">Guest House </option>
+                  <option value="option2">Hotel</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group custom-textarea-container">
+                <label for="customTextarea" class="custom-label mb-2">Special Instructions</label>
+                <textarea class="form-control custom-textarea" id="customTextarea" rows="1"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-12">
+              <div class="option-content option1 dropdown1 mt-4">
+                <div class="accommodation_details mb-4">
+                  <div class="d-flex flex-column flex-md-row border-bottom pb-3 mb-3">
+                    <div class="sub_block">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-hotel"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Guest House Name </div>
+                        <div class="sub_block_main_head"> Corporate Guest House </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Guest Location </div>
+                        <div class="sub_block_main_head">
+                          <a href="#"> #14, Main Road, Ravindranath area, Panchia - 844150 </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-bowl-food"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Meals </div>
+                        <div class="sub_block_sub_head meals">
+                          <div class="meals_group">
+                            <div>
+                              <span class="meal_indicator"></span>
+                              <span>Breakfast</span>
+                            </div>
+                            <div>
+                              <span class="meal_indicator active"></span>
+                              <span>Lunch</span>
+                            </div>
+                          </div>
+                          <div class="meals_group">
+                            <div>
+                              <span class="meal_indicator active"></span>
+                              <span>Dinner</span>
+                            </div>
+                            <div>
+                              <span class="meal_indicator active"></span>
+                              <span>Snacks</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div>
+                        <div class="sub_block_sub_head">
+                          <label class="form-check-label" for="inlineRadio6">Select</label>
+                          <br>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                            <br>
+                          </div>
+                        </div>
+                        <div class="sub_block_main_head">
+                          <a href="#" class="text-danger"> View More </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sub_block_main_head"> Rooms availability </div>
+                  <div class="d-flex">
+                    <div class="rooms bg-green">
+                      <div>
+                        <span>Room</span> 3
+                      </div>
+                      <div class="room_date">Sep 19</div>
+                      <div>Avail</div>
+                    </div>
+                    <div class="rooms bg-green">
+                      <div>
+                        <span>Room</span> 4
+                      </div>
+                      <div class="room_date">Sep 20</div>
+                      <div>Avail</div>
+                    </div>
+                    <div class="rooms bg-green">
+                      <div>
+                        <span>Room</span> 2
+                      </div>
+                      <div class="room_date">Sep 21</div>
+                      <div>Avail</div>
+                    </div>
+                    <div class="rooms bg-na">
+                      <div>
+                        <span>Room</span> 0
+                      </div>
+                      <div class="room_date">Sep 22</div>
+                      <div>NA</div>
+                    </div>
+                    <div class="rooms bg-pa">
+                      <div>
+                        <span>Room</span> 1
+                      </div>
+                      <div class="room_date">Sep 23</div>
+                      <div>PA</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accommodation_details  mb-4">
+                  <div class="d-flex d-flex flex-column flex-md-row border-bottom pb-3 mb-3">
+                    <div class="sub_block">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-hotel"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Guest House Name </div>
+                        <div class="sub_block_main_head"> Corporate Guest House </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Guest Location </div>
+                        <div class="sub_block_main_head">
+                          <a href="#"> #14, Main Road, Ravindranath area, Panchia - 844150 </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-bowl-food"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Meals </div>
+                        <div class="sub_block_sub_head meals">
+                          <div class="meals_group">
+                            <div>
+                              <span class="meal_indicator"></span>
+                              <span>Breakfast</span>
+                            </div>
+                            <div>
+                              <span class="meal_indicator active"></span>
+                              <span>Lunch</span>
+                            </div>
+                          </div>
+                          <div class="meals_group">
+                            <div>
+                              <span class="meal_indicator active"></span>
+                              <span>Dinner</span>
+                            </div>
+                            <div>
+                              <span class="meal_indicator active"></span>
+                              <span>Snacks</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div>
+                        <div class="sub_block_sub_head">
+                          <label class="form-check-label" for="inlineRadio6">Select</label>
+                          <br>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                            <br>
+                          </div>
+                        </div>
+                        <div class="sub_block_main_head">
+                          <a href="#" class="text-danger"> View More </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sub_block_main_head"> Rooms availability </div>
+                  <div class="d-flex">
+                    <div class="rooms bg-green">
+                      <div>
+                        <span>Room</span> 3
+                      </div>
+                      <div class="room_date">Sep 19</div>
+                      <div>Avail</div>
+                    </div>
+                    <div class="rooms bg-green">
+                      <div>
+                        <span>Room</span> 4
+                      </div>
+                      <div class="room_date">Sep 20</div>
+                      <div>Avail</div>
+                    </div>
+                    <div class="rooms bg-green">
+                      <div>
+                        <span>Room</span> 2
+                      </div>
+                      <div class="room_date">Sep 21</div>
+                      <div>Avail</div>
+                    </div>
+                    <div class="rooms bg-na">
+                      <div>
+                        <span>Room</span> 0
+                      </div>
+                      <div class="room_date">Sep 22</div>
+                      <div>NA</div>
+                    </div>
+                    <div class="rooms bg-pa">
+                      <div>
+                        <span>Room</span> 1
+                      </div>
+                      <div class="room_date">Sep 23</div>
+                      <div>PA</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="option-content option2 dropdown1 mt-4">
+                <div class="accommodation_details mb-4 hotel_details">
+                  <div class="d-flex flex-column flex-md-row">
+                    <div class="sub_block">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-bowl-rice"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Hotel Name </div>
+                        <div class="sub_block_main_head"> Hotel Marina Plaza </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Hotel Location </div>
+                        <div class="sub_block_main_head">
+                          <a href="#"> #14, Main Road, Ravindranath area, Panchia - 844150 </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div>
+                        <div class="star_rating">
+                          <i class="fa-solid fa-star active"></i>
+                          <i class="fa-solid fa-star active"></i>
+                          <i class="fa-solid fa-star active"></i>
+                          <i class="fa-solid fa-star "></i>
+                          <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="amount"> 5500 </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div>
+                        <div class="sub_block_sub_head">
+                          <label class="form-check-label" for="inlineRadio6">Select</label>
+                          <br>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accommodation_details mb-4 hotel_details">
+                  <div class="d-flex flex-column flex-md-row">
+                    <div class="sub_block">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-bowl-rice"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Hotel Name </div>
+                        <div class="sub_block_main_head"> Hotel easlan Plaza </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div class="sub_block_icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div>
+                        <div class="sub_block_sub_head"> Hotel Location </div>
+                        <div class="sub_block_main_head">
+                          <a href="#"> #14, Main Road, Ravindranath area, Panchia - 844150 </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div>
+                        <div class="star_rating">
+                          <i class="fa-solid fa-star active"></i>
+                          <i class="fa-solid fa-star active"></i>
+                          <i class="fa-solid fa-star active"></i>
+                          <i class="fa-solid fa-star "></i>
+                          <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="amount"> 7500 </div>
+                      </div>
+                    </div>
+                    <div class="sub_block ms-5">
+                      <div>
+                        <div class="sub_block_sub_head">
+                          <label class="form-check-label" for="inlineRadio6">Select</label>
+                          <br>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-light d-flex p-2 mt-4">
+            <div class="row">
+              <div class="col-8">
+                <p>Default Cost Cenre/Department When Travel Will be Change</p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked>
+                  <label class="form-check-label" for="inlineCheckbox2">2071001-Finance Operation</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <p>Do You Want Change To Different Cost Center/Department</p>
+                <select class="form-select custom-select-bg-img">
+                  <option selected>Select</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-4 ">
+            <button type="button" class="btn btn-danger btn_secondary"> Next <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <!-- accommodation tab end-->
+        <!-- cab tab-->
+        <div class="tab-pane fade cab_booking" id="pills-cab" role="tabpanel" aria-labelledby="pills-cab-tab" tabindex="0">
+          <form class="d-flex">
+            <span class="radio_group">
+              <input class="form-check-input" type="radio" id="option10" name="options" onclick="handleRadioClick('content6')" checked>
+              <label class="form-check-label" for="option10">One Way <i class="fa-solid fa-sign-hanging"></i>
+              </label>
+            </span>
+            <span class="radio_group">
+              <input class="form-check-input" type="radio" id="option11" name="options" onclick="handleRadioClick('content7')">
+              <label class="form-check-label" for="option11">Round Trip <i class="fa-solid fa-repeat"></i>
+              </label>
+            </span>
+            <span class="radio_group">
+              <input class="form-check-input" type="radio" id="option12" name="options" onclick="handleRadioClick('content8')">
+              <label class="form-check-label" for="option12">Airport <i class="fa-solid fa-plane"></i>
+              </label>
+            </span>
+          </form>
+          <div class="cab_details">
+            <div class="d-flex flex-column flex-md-row ">
+              <div class="blocks position-relative pb-4 content content6 content7  active">
+                <div class="sub_title">Pick up</div>
+                <div class="search_result_trip">
+                  <input type="text" class="" value="Bengaluru">
+                </div>
+                <div class="location_search">
+                  <input class="form-control" type="search" placeholder="Location" aria-label="Location">
+                </div>
+              </div>
+              <div class="blocks position-relative pb-4 content content6 content7  active">
+                <div class="sub_title">Destination</div>
+                <div class="search_result_trip">
+                  <input type="text" class="" value="Kerala">
+                </div>
+                <div class="location_search">
+                  <input class="form-control" type="search" placeholder="Location" aria-label="Location">
+                </div>
+              </div>
+              <div class="blocks content content6 content7  active">
+                <div class="sub_title">Departure</div>
+                <div class="search_result_trip search_result_date">
+                  <input type="text" class="" value="15 Sep 2022">
+                  <div class="time_value">
+                    <span>Time 09:30 <i class="fa-regular fa-clock ms-3"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="blocks content content7">
+                <div class="sub_title">Return Date</div>
+                <div class="search_result_trip search_result_date">
+                  <input type="text" class="" value="16 Sep 2022">
+                  <div class="time_value">
+                    <span>Time 09:30 <i class="fa-regular fa-clock ms-3"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="blocks content content8">
+                <div class="sub_title">Pick up</div>
+                <div class="search_result_trip">
+                  <input type="text" class="" value="Bengaluru">
+                </div>
+              </div>
+              <div class="blocks content content8">
+                <div class="sub_title">Trip</div>
+                <select id="dropdown" class="form-select custom-select-bg-img custom_select">
+                  <option selected="">Select</option>
+                  <option value="">Option 1</option>
+                  <option value="">Option 2</option>
+                </select>
+              </div>
+              <div class="blocks content content8 position-relative pb-4">
+                <div class="sub_title">Pickup Date & Time</div>
+                <div class="search_result_trip search_result_date">
+                  <input type="text" class="" value="16 Sep 2022">
+                  <div class="time_value">
+                    <span>Time 09:30 <i class="fa-regular fa-clock ms-3"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-12 col-md-4">
+                <div class="form-group custom-select-container">
+                  <label for="customSelect" class="custom-label mb-2">Cab Type</label>
+                  <select id="dropdown" class="form-select custom-select-bg-img">
+                    <option selected="">Select</option>
+                    <option value="">Option 1</option>
+                    <option value="">Option 2</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="form-group custom-select-container">
+                  <label for="customSelect" class="custom-label mb-2">Travel Agent / Contact Person</label>
+                  <select id="dropdown" class="form-select custom-select-bg-img">
+                    <option selected="">Select</option>
+                    <option value="">Option 1</option>
+                    <option value="">Option 2</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group custom-textarea-container">
+                  <label for="customTextarea" class="custom-label mb-2">Remarks</label>
+                  <textarea class="form-control custom-textarea" rows="1"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="bg-light d-flex p-2 mt-4">
+              <div class="col-8">
+                <p>Default Cost Cenre/Department When Travel Will be Change</p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked="">
+                  <label class="form-check-label" for="inlineCheckbox2">2071001-Finance Operation</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <p>Do You Want Change To Different Cost Center/Department</p>
+                <select class="form-select custom-select-bg-img">
+                  <option selected="">Select</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mt-4 content content1 content2 ">
+              <button type="button" class="btn btn-danger btn_secondary"> Next <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- cab tab end-->
+        <!-- advance tab-->
+        <div class="tab-pane fade" id="pills-advance" role="tabpanel" aria-labelledby="pills-advance-tab" tabindex="0">
+          <div class="d-flex flex-column flex-md-row">
+            <div class="blocks">
+              <div class="sub_title">Currency</div>
+              <select id="dropdown" class="form-select custom-select-bg-img custom_select">
+                <option selected="">USD -US Dollar</option>
+                <option value="">Option 1</option>
+                <option value="">Option 2</option>
+              </select>
+            </div>
+            <div class="blocks">
+              <div class="sub_title">Amount</div>
+              <!-- <div class="search_result_trip"><input type="text" value="New Delhi"><p class="trip_sub_value">IND</p></div> -->
+            </div>
+            <div class="blocks">
+              <div class="sub_title">Mode</div>
+              <select id="dropdown2" class="form-select custom-select-bg-img custom_select" onchange="changeContent('dropdown2')">
+                <option selected="">Select</option>
+                <option value="optionA">Cash</option>
+                <option value="optionB">Option 2</option>
+              </select>
+            </div>
+            <div class="blocks">
+              <div class="sub_title">Collection on</div>
+              <div class="search_result_trip search_result_date">
+                <input type="text" class="" value="23 Sep 2022">
+                <p class="trip_sub_value">Friday</p>
+              </div>
+            </div>
+          </div>
+          <div class="option-content optionA dropdown2 ">
+            <div class="row mt-4">
+              <div class="col-12 col-md-4">
+                <div class="form-group custom-select-container">
+                  <label for="customSelect" class="custom-label mb-2">Collection Center</label>
+                  <select id="dropdown" class="form-select custom-select-bg-img">
+                    <option selected="">Select</option>
+                    <option value="">Option 1 </option>
+                    <option value="">Option 2</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="form-group custom-textarea-container">
+                  <label for="customTextarea" class="custom-label mb-2">Details</label>
+                  <textarea class="form-control custom-textarea" id="" rows="1"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-light d-flex p-2 mt-4">
+            <div class="col-8">
+              <p>Default Cost Cenre/Department When Travel Will be Change</p>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked="">
+                <label class="form-check-label" for="inlineCheckbox2">2071001-Finance Operation</label>
+              </div>
+            </div>
+            <div class="col-4">
+              <p>Do You Want Change To Different Cost Center/Department</p>
+              <select class="form-select custom-select-bg-img">
+                <option selected="">Select</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-4 content content1 content2 ">
+            <button type="button" class="btn btn-danger btn_secondary"> Search <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <!-- tab end-->
+      </div>
+      <!-- bottom action-->
+      <div class="main_action">
+        <div class="d-flex justify-content-end mt-4 pb-3 ">
+          <button type="button" class="btn btn_custom btn_custom01">Cancel</button>
+          <button type="button" class="btn btn_custom btn_custom02 mx-2">Save as Draft</button>
+          <button type="button" class="btn btn_custom btn_custom02">Block</button>
+        </div>
+      </div> 
+      <!-- bottom action end-->
+    </div>
+  </section>
+  <!-- bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- custom script -->
+  <script src="js/custom.js"></script>
+</body>
+</html>
