@@ -1,23 +1,6 @@
 
 // Function to handle radio button content change
 function handleRadioClick(contentClass) {
-  // Hided all content divs
-  document.querySelectorAll('.content').forEach(function (content) {
-    content.classList.remove('active');
-  });
-
-  // Removed 'checked' attribute from the option1 radio button
-  document.getElementById('option1').removeAttribute('checked');
-
-  // Showed the selected content div
-  document.querySelectorAll('.' + contentClass).forEach(function (content) {
-    content.classList.add('active');
-  });
-}
-
-
-// Function to handle radio button content change
-function handleRadioClick(contentClass) {
   // Hide all content divs within the active parent tab
   var activeTabContent = document.querySelector('.tab-pane.fade.show.active');
   activeTabContent.querySelectorAll('.content').forEach(function (content) {
@@ -30,6 +13,15 @@ function handleRadioClick(contentClass) {
   });
 }
 
+// Function to handle sub tabs
+function handleColorClick(clickedBox) {
+  // Removed 'active' class from all color boxes
+  document.querySelectorAll('.sub_tab2').forEach(function (box) {
+    box.classList.remove('active');
+  });
+  // Added 'active' class to the clicked color box
+  clickedBox.classList.add('active');
+}
 
 
 
