@@ -71,3 +71,10 @@ function changeContent(dropdownId) {
     selectedContent.classList.add('active');
   }
 }
+
+// Select2 on the select element
+  $(document).ready(function () {
+    $('.select-city').select2({
+      dropdownPosition: 'below'
+    });
+  });
