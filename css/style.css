@@ -30,7 +30,22 @@ body {
     background: linear-gradient(to right, #51b1fe, #0a5ef4);
     color: #fff;
 }
-
+.search_result_trip .select2-selection--single{
+    border: none !important;
+    font-size: 28px;
+    font-weight: 600;
+    width: 98%;
+}
+.search_result_trip .select2-selection--single .select2-selection__rendered{
+    padding: 3px 0 !important;
+}
+.select2-container {
+    width: 100% !important;
+    margin-bottom: 16px !important;
+}
+span.select2-selection__arrow {
+    display: none;
+}
 /*search bar*/
 .form-select,
 .form-control {
@@ -138,7 +153,7 @@ select.form-select:focus,
 }
 .search_result_trip input {
     border: none;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 600;
     width: 100%;
 }
